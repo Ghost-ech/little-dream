@@ -121,11 +121,6 @@ export default function AdminLogin() {
               {loading ? 'Connexion...' : 'Se connecter'}
             </button>
           </form>
-
-          <div className="login-hint">
-            <p>Email par défaut&nbsp;: <strong>admin@littledream.cm</strong></p>
-            <p>Mot de passe&nbsp;: <strong>password</strong></p>
-          </div>
         </div>
       </div>
 

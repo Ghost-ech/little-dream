@@ -4,23 +4,24 @@ import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { FaArrowRight, FaPlay, FaHandHoldingHeart, FaUsers, FaCalendarAlt, FaMapMarkerAlt, FaStar } from 'react-icons/fa';
 import API, { getImageUrl } from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Home.css';
 
 const HERO_SLIDES = [
   {
-    bg: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400',
+    bg: '/WhatsApp Image 2026-05-06 at 12.41.29.jpeg',
     tag: 'Culture Camerounaise',
     title: 'Ensemble, faisons grandir les rêves',
     sub: "Little Dream œuvre pour l'épanouissement des jeunes à travers la culture, l'éducation et le sport au Cameroun.",
   },
   {
-    bg: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1400',
+    bg: '/WhatsApp Image 2026-05-06 at 12.41.37.jpeg',
     tag: 'Éducation & Formation',
     title: 'Un avenir meilleur pour chaque enfant',
     sub: 'Soutien scolaire, alphabétisation, et développement des compétences pour les jeunes Camerounais.',
   },
   {
-    bg: 'https://images.unsplash.com/photo-1545996124-0501ebae84d0?w=1400',
+    bg: '/WhatsApp Image 2026-05-06 at 12.41.13.jpeg',
     tag: 'Patrimoine & Traditions',
     title: 'Préserver notre richesse culturelle',
     sub: 'Danses, contes, cuisine et artisanat traditionnels : nous célébrons et transmettons notre héritage.',
@@ -46,7 +47,7 @@ function HeroSection() {
         <h1>{slide.title}</h1>
         <p>{slide.sub}</p>
         <div className="hero-actions">
-          <Link to="/comment-aider" className="btn btn-primary">
+          <Link to="/don" className="btn btn-primary">
             <FaHandHoldingHeart /> Faire un don
           </Link>
           <Link to="/mission" className="btn btn-outline hero-btn-outline">
@@ -106,8 +107,8 @@ function MissionSection() {
       <div className="container">
         <div className="mission-grid">
           <div className="mission-images">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500" alt="Activité" className="img-main" />
-            <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=300" alt="Education" className="img-secondary" />
+            <img src="/WhatsApp Image 2026-05-06 at 12.42.39.jpeg" alt="Activité" className="img-main" />
+            <img src="/WhatsApp Image 2026-05-06 at 12.41.20.jpeg" alt="Education" className="img-secondary" />
             <div className="mission-badge-float">
               <span>❤️</span>
               <div>
@@ -246,13 +247,13 @@ function DonateSection() {
           <span className="section-tag light">Soutenez Little Dream</span>
           <h2>Chaque don compte, chaque geste transforme une vie</h2>
           <p>Votre générosité permet à Little Dream de continuer ses actions auprès des enfants et jeunes Camerounais dans le besoin.</p>
-          <Link to="/comment-aider" className="btn btn-primary">
+          <Link to="/don" className="btn btn-primary">
             <FaHandHoldingHeart /> Faire un don maintenant
           </Link>
         </div>
         <div className="donate-amounts">
           {[5000, 10000, 25000, 50000].map(a => (
-            <Link to="/comment-aider" key={a} className="amount-pill">
+            <Link to="/don" key={a} className="amount-pill">
               {a.toLocaleString()} FCFA
             </Link>
           ))}
@@ -284,7 +285,7 @@ function VolunteerSection() {
             </Link>
           </div>
           <div className="vol-image">
-            <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=600" alt="Bénévoles" />
+            <img src="/WhatsApp Image 2026-05-06 at 12.41.22.jpeg" alt="Bénévoles" />
           </div>
         </div>
       </div>
@@ -293,6 +294,10 @@ function VolunteerSection() {
 }
 
 export default function Home() {
+  useDocumentMeta({
+    description: "Little Dream, association camerounaise pour l'épanouissement et l'autonomisation des enfants et jeunes vulnérables : éducation, santé, culture, sport, mentorat.",
+    path: '/',
+  });
   return (
     <main>
       <HeroSection />

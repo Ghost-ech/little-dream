@@ -26,7 +26,7 @@ API.interceptors.response.use(
 
 export default API;
 
-export const IMAGE_BASE_URL = 'http://localhost:5000';
+export const IMAGE_BASE_URL = import.meta.env.VITE_IMAGE_BASE_URL || 'http://localhost:5000';
 
 // Préfixe IMAGE_BASE_URL pour les chemins relatifs (uploads locaux),
 // laisse intactes les URLs absolues (http/https) et retourne null si vide.

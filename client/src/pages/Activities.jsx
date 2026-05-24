@@ -1,11 +1,17 @@
 // client/src/pages/Activities.jsx
 import React, { useEffect, useState } from 'react';
 import API, { getImageUrl } from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Activities.css';
 
 const CATEGORIES = ['Toutes', 'Education', 'Culture', 'Sport'];
 
 export default function Activities() {
+  useDocumentMeta({
+    title: 'Nos Activités',
+    description: "Soutien scolaire, danses traditionnelles, cuisine locale, sport, alphabétisation : découvrez les activités de Little Dream pour la jeunesse camerounaise.",
+    path: '/activites',
+  });
   const [activities, setActivities] = useState([]);
   const [filter, setFilter] = useState('Toutes');
   const [loading, setLoading] = useState(true);

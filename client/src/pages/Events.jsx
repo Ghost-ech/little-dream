@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import API, { getImageUrl } from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Events.css';
 
 export default function Events() {
+  useDocumentMeta({
+    title: 'Événements',
+    description: "Agenda des événements Little Dream au Cameroun : journées culturelles, tournois sportifs, collectes solidaires et ateliers à Yaoundé et Douala.",
+    path: '/evenements',
+  });
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 

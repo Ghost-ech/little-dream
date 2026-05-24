@@ -7,7 +7,7 @@ const Event = {
   },
   
   findPublished: async () => {
-    const result = await query('SELECT * FROM events WHERE is_published = true AND event_date >= NOW() ORDER BY event_date ASC');
+    const result = await query('SELECT * FROM events WHERE is_published = true ORDER BY event_date DESC');
     return result.rows;
   },
   

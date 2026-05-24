@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import API, { IMAGE_BASE_URL } from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Gallery.css';
 
 const CATS = ['Toutes', 'Education', 'Culture', 'Sport', 'Events'];
 
 export default function Gallery() {
+  useDocumentMeta({
+    title: 'Galerie photos',
+    description: "Photos des activités, événements et actions de Little Dream sur le terrain au Cameroun : éducation, culture, sport et solidarité.",
+    path: '/galerie',
+  });
   const [images, setImages] = useState([]);
   const [filter, setFilter] = useState('Toutes');
   const [lightbox, setLightbox] = useState(null);

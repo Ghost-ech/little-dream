@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaHandHoldingHeart, FaUsers, FaHandshake, FaCheck } from 'react-icons/fa';
 import API from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './HowToHelp.css';
 
 function DonateForm() {
@@ -149,6 +150,11 @@ function VolunteerForm() {
 }
 
 export default function HowToHelp() {
+  useDocumentMeta({
+    title: 'Comment aider',
+    description: "Devenez bénévole, faites un don ou devenez partenaire de Little Dream. Plusieurs façons concrètes de soutenir la jeunesse camerounaise.",
+    path: '/comment-aider',
+  });
   return (
     <main>
       <div className="page-header">

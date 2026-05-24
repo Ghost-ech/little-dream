@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaMoneyBillWave, FaMobileAlt, FaHandHoldingHeart, FaCheckCircle } from 'react-icons/fa';
 import API from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Donate.css';
 
 const PAYMENT_METHODS = [
@@ -13,6 +14,11 @@ const PAYMENT_METHODS = [
 const AMOUNTS = [1000, 2000, 5000, 10000, 25000, 50000];
 
 export default function Donate() {
+  useDocumentMeta({
+    title: 'Faire un don',
+    description: "Faites un don à Little Dream via Orange Money, MTN Mobile Money ou espèces. Chaque don soutient les enfants et jeunes vulnérables du Cameroun.",
+    path: '/don',
+  });
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
     donor_name: '',

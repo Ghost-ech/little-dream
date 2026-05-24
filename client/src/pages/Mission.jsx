@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaHandHoldingHeart, FaEye, FaBullseye, FaUsers } from 'react-icons/fa';
 import API, { IMAGE_BASE_URL } from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Mission.css';
 
 const values = [
@@ -14,6 +15,11 @@ const values = [
 ];
 
 export default function Mission() {
+  useDocumentMeta({
+    title: 'Notre Mission',
+    description: "Mission, vision et valeurs de Little Dream : épanouissement et autonomisation des enfants et jeunes vulnérables au Cameroun par l'éducation, la santé et le mentorat.",
+    path: '/mission',
+  });
   const [team, setTeam] = useState([]);
   const [loadingTeam, setLoadingTeam] = useState(true);
 
@@ -63,7 +69,7 @@ export default function Mission() {
         <div className="container">
           <div className="story-grid">
             <div className="story-images">
-              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=500" alt="Histoire" />
+              <img src="/WhatsApp Image 2026-05-06 at 12.41.18.jpeg" alt="Histoire" />
             </div>
             <div className="story-text">
               <span className="section-tag">Notre Histoire</span>

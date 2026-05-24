@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaFacebook, FaInstagram, FaWhatsapp, FaLinkedinIn } from 'react-icons/fa';
 import API from '../api';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Contact.css';
 
 export default function Contact() {
+  useDocumentMeta({
+    title: 'Contact',
+    description: "Contactez l'association Little Dream au Cameroun : adresse, téléphone, email et formulaire de contact. Nous répondons à toutes vos questions.",
+    path: '/contact',
+  });
   const [form, setForm] = useState({ name:'', email:'', subject:'', message:'' });
   const [sending, setSending] = useState(false);
 

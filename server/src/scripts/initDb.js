@@ -106,17 +106,22 @@ async function initDatabase() {
     `);
     
     console.log('✅ Tables créées');
-    console.log("DB_PASSWORD =", process.env.DB_PASSWORD);
-    
-    // Insert default admin
-    const adminExists = await query('SELECT * FROM users WHERE email = $1', ['admin@littledream.cm']);
-    if (adminExists.rows.length === 0) {
-      const hashedPassword = await bcrypt.hash('password', 10);
-      await query(
-        'INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4)',
-        ['Admin Little Dream', 'admin@littledream.cm', hashedPassword, 'admin']
-      );
-      console.log('✅ Admin créé (email: admin@littledream.cm, password: password)');
+
+    // Default admin — only created if ADMIN_EMAIL and ADMIN_PASSWORD are set in .env
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminPassword = process.env.ADMIN_PASSWORD;
+    if (adminEmail && adminPassword) {
+      const adminExists = await query('SELECT id FROM users WHERE email = $1', [adminEmail]);
+      if (adminExists.rows.length === 0) {
+        const hashedPassword = await bcrypt.hash(adminPassword, 12);
+        await query(
+          'INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4)',
+          [process.env.ADMIN_NAME || 'Admin Little Dream', adminEmail, hashedPassword, 'admin']
+        );
+        console.log(`✅ Admin créé : ${adminEmail}`);
+      }
+    } else {
+      console.log('ℹ️  Aucun admin créé — définissez ADMIN_EMAIL et ADMIN_PASSWORD dans .env ou lancez `npm run create-admin` plus tard');
     }
     
     // Insert default stats
