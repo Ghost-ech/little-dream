@@ -24,7 +24,7 @@ transporter.verify((error, success) => {
 const sendEmail = async (to, subject, html, replyTo = null) => {
   try {
     const info = await transporter.sendMail({
-      from: `"Little Dream Association" <${process.env.EMAIL_FROM || 'contact@littledream.cm'}>`,
+      from: `"Little Dream Association" <${process.env.EMAIL_FROM || 'littledream.association@gmail.com'}>`,
       to: to,
       subject: subject,
       html: html,
@@ -114,11 +114,8 @@ const getVolunteerAcceptedTemplate = (volunteerName, message = null) => {
         
         <!-- Pied de page -->
         <div style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #eee;">
-          <p style="margin: 0 0 5px 0; color: #999; font-size: 12px;">
-            📍 Douala, Cameroun
-          </p>
           <p style="margin: 0; color: #999; font-size: 12px;">
-            📧 contact@littledream.cm | 📞 +237 6XX XXX XXX
+            📧 littledream.association@gmail.com | 📞 +237 640 420 079 / +237 673 356 881
           </p>
           <p style="margin: 15px 0 0 0; color: #bbb; font-size: 11px;">
             © ${currentYear} Little Dream Association - Tous droits réservés
@@ -242,7 +239,7 @@ const getDonationConfirmationTemplate = (donorName, amount, currency, paymentMet
         
         <div style="background-color: #f8f9fa; padding: 20px; text-align: center;">
           <p style="margin: 0; color: #999; font-size: 12px;">
-            📍 Douala, Cameroun | 📧 littledream.association@gmail.com | 📞 +237 640 420 079
+            📧 littledream.association@gmail.com | 📞 +237 640 420 079 / +237 673 356 881
           </p>
           <p style="margin: 10px 0 0 0; color: #bbb; font-size: 11px;">
             © ${currentYear} Little Dream Association

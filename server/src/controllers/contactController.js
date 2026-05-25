@@ -69,7 +69,7 @@ const reply = async (req, res) => {
               <strong>L'équipe Little Dream</strong>
             </p>
             <p style="color: #718096; font-size: 12px; margin-top: 20px;">
-              📍 Douala, Cameroun | ✉️ contact@littledream.cm | 📞 +237 6XX XXX XXX
+              ✉️ littledream.association@gmail.com | 📞 +237 640 420 079 / +237 673 356 881
             </p>
           </div>
         </div>
