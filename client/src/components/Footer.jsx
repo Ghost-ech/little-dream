@@ -40,7 +40,7 @@ export default function Footer() {
               <div className="footer-social">
                 <a href="https://www.linkedin.com/company/littledream-cm/"          target="_blank" rel="noreferrer" className="social-fb"><FaLinkedin /></a>
                 <a href="https://www.instagram.com/littledream_cameroun?igsh=MXhmbWR0Zmh1dmpxeg=="         target="_blank" rel="noreferrer" className="social-ig"><FaInstagram /></a>
-                <a href="https://wa.me/237640420079"    target="_blank" rel="noreferrer" className="social-wa"><FaWhatsapp /></a>
+                <a href="https://wa.me/237673356881"    target="_blank" rel="noreferrer" className="social-wa"><FaWhatsapp /></a>
               </div>
             </div>
 

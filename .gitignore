@@ -37,3 +37,4 @@ Thumbs.db
 # Misc
 *.local
 coverage/
+/little_dream_front_end

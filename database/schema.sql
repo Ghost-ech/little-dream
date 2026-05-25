@@ -1,6 +1,4 @@
 -- database/schema.sql
--- Little Dream Association - Database Schema
--- PostgreSQL
 
 CREATE DATABASE little_dream;
 
@@ -51,6 +49,10 @@ CREATE TABLE donations (
   message TEXT,
   payment_status VARCHAR(30) DEFAULT 'pending',
   payment_reference VARCHAR(200),
+  payment_method VARCHAR(30) DEFAULT 'cash',
+  phone_number VARCHAR(30),
+  transaction_id VARCHAR(200),
+  operator VARCHAR(50),
   created_at TIMESTAMP DEFAULT NOW()
 );
 
@@ -95,5 +97,22 @@ CREATE TABLE stats (
   label VARCHAR(100) NOT NULL,
   value INT NOT NULL DEFAULT 0,
   icon VARCHAR(50),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Team Members
+CREATE TABLE team_members (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  position VARCHAR(150) NOT NULL,
+  bio TEXT,
+  image_url VARCHAR(500),
+  email VARCHAR(150),
+  linkedin_url VARCHAR(500),
+  twitter_url VARCHAR(500),
+  facebook_url VARCHAR(500),
+  display_order INT DEFAULT 0,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );

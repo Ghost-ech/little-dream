@@ -66,7 +66,7 @@ export default function Contact() {
                 <div className="social-links">
                   <a href="https://www.linkedin.com/company/littledream-cm/" target="_blank" rel="noreferrer" className="sl-fb"><FaLinkedinIn /> LinkedIn</a>
                   <a href="https://www.instagram.com/littledream_cameroun?igsh=MXhmbWR0Zmh1dmpxeg==" target="_blank" rel="noreferrer" className="sl-ig"><FaInstagram /> Instagram</a>
-                  <a href="https://wa.me/237640420079" target="_blank" rel="noreferrer" className="sl-wa"><FaWhatsapp /> WhatsApp</a>
+                  <a href="https://wa.me/237673356881" target="_blank" rel="noreferrer" className="sl-wa"><FaWhatsapp /> WhatsApp</a>
                 </div>
               </div>
             </div>
