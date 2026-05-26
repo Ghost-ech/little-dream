@@ -23,7 +23,7 @@ const galleryCreate = async (req, res) => {
     
     // Si un fichier a été uploadé, utiliser son chemin
     if (req.file) {
-      imageUrl = `/uploads/${req.file.filename}`;
+      imageUrl = `/uploads/gallery/${req.file.filename}`;
     }
     
     if (!imageUrl) {
@@ -46,12 +46,11 @@ const galleryCreate = async (req, res) => {
 // Gallery - DELETE
 const galleryRemove = async (req, res) => {
   try {
-    // Récupérer l'image pour supprimer le fichier
+    // Récupérer l'image pour supprimer le fichier physique
     const item = await Gallery.findById(req.params.id);
     if (item && item.image_url && !item.image_url.startsWith('http')) {
-      const fs = require('fs');
-      const path = require('path');
-      const filePath = path.join(__dirname, '../../uploads', path.basename(item.image_url));
+      // image_url est de la forme /uploads/gallery/foo.jpeg → on remonte de 2 niveaux depuis controllers/
+      const filePath = path.join(__dirname, '../..', item.image_url);
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath);
       }
