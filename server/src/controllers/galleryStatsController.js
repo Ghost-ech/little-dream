@@ -5,17 +5,12 @@ const path = require('path');
 const fs = require('fs');
 
 // Gallery - GET all
+// On renvoie image_url tel qu'en base (chemin relatif /uploads/... ou URL externe).
+// Le frontend préfixe avec IMAGE_BASE_URL via getImageUrl().
 const galleryGetAll = async (req, res) => {
   try {
     const items = await Gallery.findAll();
-    // Transformer les URLs pour qu'elles soient accessibles depuis le frontend
-    const itemsWithUrls = items.map(item => {
-      if (item.image_url && !item.image_url.startsWith('http')) {
-        item.image_url = `${req.protocol}://${req.get('host')}/uploads/${path.basename(item.image_url)}`;
-      }
-      return item;
-    });
-    res.json({ success: true, data: itemsWithUrls });
+    res.json({ success: true, data: items });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
